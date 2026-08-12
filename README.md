@@ -1,1 +1,0 @@
-# sk-hackathon-eval-agent

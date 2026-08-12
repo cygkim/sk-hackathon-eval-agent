@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AREA · Agent Evaluation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="?screen=home"><span>A</span><div><b>AREA</b><small>Agent evaluation workspace</small></div></a>
+        <div class="top-actions"><span class="environment"><i></i>Sandbox</span><span class="workspace">Enterprise AI Lab</span><button aria-label="도움말">?</button><button class="avatar" aria-label="프로필">WS</button></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="screen" data-screen="home">
+        <div class="home-head">
+          <div><span class="eyebrow">PROJECTS</span><h1>검증 프로젝트</h1><p>Agent별 검증 설계와 실행 이력을 관리합니다.</p></div>
+          <div class="home-tools"><label class="search">⌕<input placeholder="프로젝트 검색" /></label><button class="quiet active">전체 8</button><button class="quiet">진행 중 2</button></div>
+        </div>
+        <div class="project-grid">
+          <a class="project-card create-card" href="?screen=new"><span class="plus">＋</span><div><h2>New Project</h2><p>Agent 소스를 연결하고 새 검증을 시작합니다.</p></div></a>
+          <a class="project-card" href="?screen=design"><div class="card-top"><span class="project-mark cobalt">P</span><span class="state designing">설계 중</span></div><div class="card-body"><h2>생산계획 지원 Agent</h2><p>재고와 입고 일정을 바탕으로 생산 가능 여부 판단</p><div class="tags"><span>Auto detect</span><span>v1.4.2</span></div></div><div class="card-foot"><span>12분 전</span><b>설계 계속 <i>→</i></b></div></a>
+          <a class="project-card" href="?screen=results"><div class="card-top"><span class="project-mark slate">C</span><span class="state complete">완료</span></div><div class="card-body"><h2>고객지원 RAG Agent</h2><p>정책 검색과 고객 응답의 근거 충실성 평가</p><div class="metric-big"><b>93</b><span>품질 점수</span></div></div><div class="card-foot"><span>오늘 10:42</span><b>결과 보기 <i>→</i></b></div></a>
+          <a class="project-card" href="?screen=run"><div class="card-top"><span class="project-mark violet">S</span><span class="state running"><i></i>실행 중</span></div><div class="card-body"><h2>SQL 분석 Agent</h2><p>자연어 질의의 SQL 생성과 실행 경로 평가</p><div class="mini-progress"><span><i style="width:48%"></i></span><b>48%</b></div></div><div class="card-foot"><span>04:18 경과</span><b>실행 보기 <i>→</i></b></div></a>
+          <a class="project-card" href="?screen=results"><div class="card-top"><span class="project-mark orange">B</span><span class="state attention">수정 필요</span></div><div class="card-body"><h2>구매검토 Agent</h2><p>규정 준수와 승인 경로 검증</p><div class="metric-big danger"><b>2</b><span>중대한 실패</span></div></div><div class="card-foot"><span>08월 10일</span><b>결과 보기 <i>→</i></b></div></a>
+          <a class="project-card" href="?screen=results"><div class="card-top"><span class="project-mark teal">R</span><span class="state complete">완료</span></div><div class="card-body"><h2>사내규정 검색 Agent</h2><p>인사·보안 규정 검색과 인용 품질 평가</p><div class="metric-big"><b>96</b><span>품질 점수</span></div></div><div class="card-foot"><span>08월 09일</span><b>결과 보기 <i>→</i></b></div></a>
+          <a class="project-card" href="?screen=design"><div class="card-top"><span class="project-mark graphite">D</span><span class="state draft">초안</span></div><div class="card-body"><h2>문서검토 Agent</h2><p>계약 문서 조항 추출과 위험 표현 탐지</p><div class="tags"><span>Custom adapter</span><span>v0.3</span></div></div><div class="card-foot"><span>08월 08일</span><b>열기 <i>→</i></b></div></a>
+          <a class="project-card" href="?screen=results"><div class="card-top"><span class="project-mark rose">H</span><span class="state complete">완료</span></div><div class="card-body"><h2>HR 문의 Agent</h2><p>사내 제도 안내와 개인정보 노출 점검</p><div class="metric-big"><b>89</b><span>품질 점수</span></div></div><div class="card-foot"><span>08월 07일</span><b>결과 보기 <i>→</i></b></div></a>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="new">
+        <div class="page-head"><div><a class="back" href="?screen=home">← Projects</a><h1>새 프로젝트</h1><p>프로젝트와 실행 소스만 연결합니다. 검증 데이터는 다음 단계에서 설정합니다.</p></div></div>
+        <div class="new-shell">
+          <div class="panel project-form">
+            <div class="section-head"><div><span>01</span><h2>프로젝트</h2></div><small>필수</small></div>
+            <div class="form-grid"><label><span>프로젝트 이름</span><input value="생산계획 지원 Agent 평가" /></label><label><span>버전</span><input value="v1.4.2" /></label><label class="wide"><span>평가 목적</span><textarea>업무 조건이 실행 과정에서 보존되고 최종 판단이 실제 조회 근거와 일치하는지 확인합니다.</textarea></label><label><span>Workspace</span><select><option>Enterprise AI Lab</option></select></label><label><span>실행 환경</span><select><option>Sandbox · Read only</option><option>Staging</option></select></label></div>
+
+            <div class="section-head source-head"><div><span>02</span><h2>Agent 소스</h2></div><small>필수</small></div>
+            <div class="source-tabs"><button class="active" data-source="git">Git</button><button data-source="local">Local</button><button data-source="endpoint">Endpoint</button></div>
+            <div class="form-grid source-fields"><label class="wide"><span>Repository</span><input value="https://git.example.com/production-agent" /></label><label><span>Branch</span><input value="main" /></label><label><span>Entrypoint</span><input value="app.agent:run" /></label><label class="wide"><span>Framework</span><select><option>자동 인식</option><option>LangGraph</option><option>LangChain</option><option>OpenAI Agents SDK</option><option>CrewAI</option><option>AutoGen</option><option>Custom Adapter</option></select><small>특정 Framework에 종속되지 않으며 Adapter 방식으로 확장합니다.</small></label></div>
+          </div>
+          <aside class="new-side">
+            <div class="source-preview"><span class="source-icon">⌘</span><h2>소스 분석 준비</h2><p>연결 후 Framework, Entrypoint와 실행 Graph를 자동으로 인식합니다.</p><dl><div><dt>질문·Prompt</dt><dd>검증 설계에서 입력</dd></div><div><dt>Trace</dt><dd>실행 중 자동 수집</dd></div><div><dt>Framework</dt><dd>Auto detect</dd></div></dl></div>
+            <a class="primary full" href="?screen=design">프로젝트 생성 및 분석 <span>→</span></a><button class="text-button full">임시 저장</button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="design">
+        <div class="compact-head"><div><a class="back" href="?screen=home">← 생산계획 지원 Agent</a><h1>검증 설계</h1></div><div class="head-actions"><span class="saved">설정 자동 저장</span></div></div>
+        <div class="design-layout">
+          <div class="design-main">
+            <div class="panel graph-panel">
+              <div class="panel-head"><div><h2>인식된 실행 흐름</h2><p>소스를 분석해 구성한 Graph입니다. 색이 있는 Node만 평가합니다.</p></div><div class="legend"><span><i class="llm"></i>LLM</span><span><i class="rag"></i>RAG</span><span><i class="tool"></i>Tool</span></div></div>
+              <div class="source-meta"><span>Auto detect</span><b>6 Nodes</b><small>Custom Graph Adapter</small></div>
+              <div class="workflow-graph design-graph">
+                <div class="graph-node muted"><small>INPUT</small><b>request</b></div><i>→</i>
+                <div class="graph-node target llm"><small>LLM</small><b>intent_router</b><em>평가</em><button class="node-guide configured" data-node="intent_router" data-guide="prompt">✓ Prompt</button></div><i>→</i>
+                <div class="graph-branch"><div class="branch-line"></div><div class="branch-nodes"><div class="graph-node target rag"><small>RAG</small><b>policy_retriever</b><em>평가</em><button class="node-guide" data-node="policy_retriever">＋ 지침</button></div><div class="graph-node target tool"><small>TOOL</small><b>inventory_api</b><em>평가</em><button class="node-guide configured" data-node="inventory_api" data-guide="skill">✓ Skill</button></div></div></div><i>→</i>
+                <div class="graph-node target llm"><small>LLM</small><b>decision</b><em>평가</em><button class="node-guide" data-node="decision">＋ 지침</button></div><i>→</i>
+                <div class="graph-node muted"><small>OUTPUT</small><b>response</b></div>
+              </div>
+              <div class="target-summary"><b>평가 대상 4</b><span>LLM 2 · RAG 1 · Tool 1</span><span class="guide-count" id="node-guide-count">Node 지침 2 / 4</span><button id="edit-targets">대상 변경</button></div>
+            </div>
+
+            <div class="panel question-panel">
+              <div class="panel-head"><div><h2>평가 입력</h2><p>질문마다 선택적으로 하나의 정답지를 연결합니다.</p></div><span class="count" id="question-count">3 Questions · 정답 2</span></div>
+              <div class="question-entry"><input id="question-input" placeholder="평가할 사용자 질문을 입력하세요" value="평택 2공장의 M-204 생산 가능 여부를 알려줘" /><button id="add-question">추가</button><button class="recommend" id="generate-questions">✦ 추천질문</button></div>
+              <div class="question-pairs" id="question-pairs">
+                <article class="question-pair" data-origin="input"><div class="question-row"><span class="origin input">입력</span><p>평택 2공장의 M-204 생산 가능 여부를 알려줘.</p><button class="answer-toggle complete">정답 입력됨</button><button class="remove-question">×</button></div><div class="answer-editor"><label><span>정답지 <em>선택</em></span><textarea>평택 2공장은 확정 재고와 기준일 이전 확정 입고량을 합산했을 때 M-204 생산이 가능합니다. 판단에 사용한 수량과 기준일을 함께 제시합니다.</textarea></label></div></article>
+                <article class="question-pair" data-origin="input"><div class="question-row"><span class="origin input">입력</span><p>입고 예정이 0건일 때 가동 가능 여부를 판단해줘.</p><button class="answer-toggle complete">정답 입력됨</button><button class="remove-question">×</button></div><div class="answer-editor hidden"><label><span>정답지 <em>선택</em></span><textarea>입고 예정이 없으므로 확정 재고만으로 필요 수량 충족 여부를 계산하고 가동 가능 여부를 답합니다.</textarea></label></div></article>
+                <article class="question-pair" data-origin="recommended"><div class="question-row"><span class="origin recommended">추천</span><p>기준일과 입고일이 같은 경우 입고량을 포함해야 해?</p><button class="answer-toggle">＋ 정답지</button><button class="remove-question">×</button></div><div class="answer-editor hidden"><label><span>정답지 <em>선택</em></span><textarea placeholder="이 질문에 대응하는 이상적인 전체 답변을 입력하세요."></textarea></label></div></article>
+              </div>
+              <div class="design-inputs single"><label><span>전체 평가 가이던스</span><div class="compound-input"><select id="guidance-type"><option value="message">평가용 시스템 메시지</option><option value="skill">Evaluation Skill</option></select><input id="guidance-value" value="사업장 조건 누락은 중대한 실패로 분류" /></div></label></div>
+            </div>
+          </div>
+
+          <aside class="design-side">
+            <div class="panel mode-panel"><span class="eyebrow">EVALUATION MODE</span><h2>평가 자동화</h2><div class="segmented"><button class="active" data-mode="auto">자동</button><button data-mode="manual">HITL</button></div><div class="mode-copy" data-mode-copy><b>필수 정보만으로 실행합니다.</b><p>질문과 Node 특성을 분석해 Metric, 반복 횟수와 판정 기준을 Agent가 구성합니다.</p></div><div class="evaluation-cycle"><span>계획</span><i>→</i><span>실행</span><i>→</i><span>판정</span><i>→</i><span>진단</span><i>→</i><span>Test</span></div><small class="cycle-caption">자동 모드는 전체 Cycle을 Agent가 수행합니다.</small><a class="detail-link hidden" id="manual-detail" href="?screen=manual">Node별 Metric 설정 <span>→</span></a></div>
+            <div class="panel ready-panel" id="plan-panel"><div><span class="plan-dot"></span><div><b id="plan-title">평가 계획 미생성</b><small id="instance-id">실험 Instance 생성 전</small></div></div><dl><div><dt>Source</dt><dd>분석 완료</dd></div><div><dt>평가 Node</dt><dd>4</dd></div><div><dt>질문</dt><dd><span id="ready-question-count">3</span> · 추천 <span id="ready-recommended-count">1</span></dd></div><div><dt>정답지</dt><dd><span id="ready-answer-count">2</span> / <span id="ready-answer-total">3</span></dd></div><div><dt>Metric 선정</dt><dd id="metric-mode-summary">Agent 자동</dd></div><div><dt>가이던스</dt><dd id="guidance-summary">평가용 시스템 메시지</dd></div></dl><button class="primary full" id="generate-plan">평가 계획 생성</button><a class="primary full disabled" id="start-evaluation" href="?screen=run">검증 시작 <span>→</span></a></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="manual">
+        <div class="compact-head"><div><a class="back" href="?screen=design&mode=manual">← 검증 설계</a><h1>상세 검증 설정</h1></div><div class="head-actions"><span class="hitl-badge">HITL · Human in the loop</span><a class="primary" href="?screen=design&mode=manual">설정 완료</a></div></div>
+        <div class="manual-layout">
+          <aside class="panel node-list"><div class="panel-head"><div><h2>평가 Node</h2><p>4개 선택됨</p></div></div><button class="active"><i class="llm"></i><span><b>intent_router</b><small>LLM</small></span><em>3 Metrics</em></button><button><i class="rag"></i><span><b>policy_retriever</b><small>RAG</small></span><em>2 Metrics</em></button><button><i class="tool"></i><span><b>inventory_api</b><small>Tool</small></span><em>3 Metrics</em></button><button><i class="llm"></i><span><b>decision</b><small>LLM</small></span><em>2 Metrics</em></button></aside>
+          <div class="panel metric-settings"><div class="panel-head"><div><h2>intent_router</h2><p>질문의 사업장·자재·시점 조건을 해석하는 LLM Node</p></div><span class="node-type llm">LLM</span></div><div class="setting-grid"><div><h3>Metric</h3><label class="metric-option recommended"><input type="checkbox" checked /><span><b>Instruction Following</b><small>질문의 명시 조건 보존</small></span><em>추천</em></label><label class="metric-option recommended"><input type="checkbox" checked /><span><b>Constraint Recall</b><small>필수 조건의 누락 여부</small></span><em>추천</em></label><label class="metric-option"><input type="checkbox" checked /><span><b>Structured Output</b><small>다음 Node 입력 계약 준수</small></span></label><label class="metric-option"><input type="checkbox" /><span><b>Latency</b><small>Node 응답 시간</small></span></label></div><div><h3>판정 설정</h3><label class="field"><span>통과 기준</span><input value="0.80" /></label><label class="field"><span>반복 실행</span><select><option>3회</option><option>1회</option><option>5회</option></select></label><label class="field"><span>Failure 조건</span><textarea>사업장 또는 자재 조건이 다음 Node로 전달되지 않으면 Failure</textarea></label><div class="why"><b>추천 이유</b><p>입력 질문에 여러 업무 조건이 포함되고, 이 Node의 출력이 모든 후속 조회 범위를 결정합니다.</p></div></div></div></div>
+          <aside class="panel budget-panel"><div class="panel-head"><div><h2>실행 제한</h2><p>전체 평가</p></div></div><label class="field"><span>최대 실행 시간</span><select><option>15분</option></select></label><label class="field"><span>Token 예산</span><input value="120,000" /></label><label class="field"><span>Judge 반복</span><select><option>3회 · 다수결</option></select></label><label class="toggle-row"><span><b>실패 시 중단</b><small>차단 조건 위반</small></span><input type="checkbox" /></label><label class="toggle-row"><span><b>Test 자동 생성</b><small>실패 기반 변형</small></span><input type="checkbox" checked /></label></aside>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="run">
+        <div class="compact-head"><div><a class="back" href="?screen=design">← 검증 설계</a><h1>검증 실행</h1></div><div class="head-actions"><span class="run-id">RUN · 20260812-1432</span><button class="quiet" id="pause-run">일시정지</button><button class="stop" id="stop-run">중단</button><a class="primary" id="result-link" href="?screen=results">결과 분석 <span>→</span></a></div></div>
+        <div class="run-summary" id="run-summary"><div><span class="pulse" id="run-state-dot"></span><div><b id="run-state-title">실행 중</b><small id="run-state-copy">Q-006 · 정책 근거 비교</small></div></div><div class="progress-line"><span><i id="run-progress-bar" style="width:48%"></i></span><b id="run-progress-text">48%</b></div><dl><div><dt>질문</dt><dd id="run-question-count">6 / 12</dd></div><div><dt>경과</dt><dd>04:18</dd></div><div><dt>Token</dt><dd>38.4K</dd></div></dl></div>
+        <div class="run-layout">
+          <aside class="panel run-queue"><div class="panel-head"><div><h2>질문</h2><p>6 / 12 완료</p></div></div><button class="done"><span>✓</span><div><b>Q-001 사업장별 가동</b><small>Failure 1</small></div></button><button class="done"><span>✓</span><div><b>Q-002 입고 예정 0건</b><small>Pass</small></div></button><button class="done"><span>✓</span><div><b>Q-003 기준일 경계</b><small>Review 1</small></div></button><button class="active"><span class="spinner"></span><div><b>Q-006 정책 근거 비교</b><small>실행 중</small></div></button><button><span>7</span><div><b>Q-007 유사 Tool 선택</b><small>대기</small></div></button></aside>
+          <div class="panel run-canvas"><div class="panel-head"><div><h2>실시간 실행 Graph</h2><p>통신과 평가가 완료되는 순서대로 갱신됩니다.</p></div><span class="live">LIVE</span></div><div class="workflow-graph live-graph"><div class="graph-node done"><small>INPUT</small><b>request</b><em>✓</em></div><i>→</i><div class="graph-node done llm"><small>LLM · 0.91</small><b>intent_router</b><em>✓</em></div><i>→</i><div class="graph-node active rag"><small>RAG</small><b>policy_retriever</b><em class="spinner"></em></div><i>→</i><div class="graph-node waiting tool"><small>TOOL</small><b>inventory_api</b></div><i>→</i><div class="graph-node waiting llm"><small>LLM</small><b>decision</b></div></div><div class="live-detail"><div><div class="detail-head"><b>Node 통신</b><span>14:36:22</span></div><div class="event-log"><p><time>14:36:21</time><b>Retriever</b><span>policy_chunks 4건 반환</span></p><p><time>14:36:22</time><b>Evaluator</b><span>Faithfulness · Context Relevancy 실행</span></p><p class="current"><time>14:36:22</time><b>Judge</b><span>검색 Context와 주장 비교 중…</span></p></div></div><div><div class="detail-head"><b>현재 평가</b><span>자동 선정</span></div><div class="now-metric"><b>Faithfulness</b><strong>—</strong><p>정책을 근거로 한 주장의 충실성을 확인합니다.</p><dl><div><dt>Latency</dt><dd>1.37s</dd></div><div><dt>Token</dt><dd>2,812</dd></div></dl></div></div></div></div>
+          <aside class="panel cycle-panel"><div class="panel-head"><div><h2>평가 Cycle</h2><p>자동</p></div></div><ol><li class="done"><span>✓</span><div><b>질문 분석</b><small>완료</small></div></li><li class="done"><span>✓</span><div><b>Metric 선정</b><small>6개 적용</small></div></li><li class="active"><span class="spinner"></span><div><b>Node 평가</b><small>3 / 6</small></div></li><li><span>4</span><div><b>위험도 분석</b><small>대기</small></div></li><li><span>5</span><div><b>Test 생성</b><small>대기</small></div></li></ol><p class="result-hint" id="result-hint">목업에서는 결과 분석 화면으로 바로 이동할 수 있습니다.</p></aside>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="results">
+        <div class="compact-head"><div><a class="back" href="?screen=home">← Projects</a><h1>결과 분석</h1></div><div class="head-actions"><button class="quiet">리포트 내보내기</button><button class="primary">개선 버전 재평가</button></div></div>
+        <div class="result-summary"><div class="risk"><span>위험도</span><b>HIGH</b><small>차단 조건 1건</small></div><div><span>질문 통과</span><b>9 / 12</b><small>75%</small></div><div><span>판정 통과</span><b>84 / 96</b><small>Review 10</small></div><div><span>Trace</span><b>138 / 144</b><small>95.8%</small></div></div>
+        <div class="result-layout">
+          <aside class="panel result-questions"><div class="panel-head"><div><h2>질문</h2><p>12개</p></div></div><button class="active"><i class="high"></i><div><b>Q-001 사업장별 가동</b><small>Failure · 62</small></div></button><button><i class="low"></i><div><b>Q-002 입고 예정 0건</b><small>Pass · 94</small></div></button><button><i class="medium"></i><div><b>Q-003 기준일 경계</b><small>Review · 81</small></div></button><button><i class="low"></i><div><b>Q-004 유사 사업장명</b><small>Pass · 92</small></div></button></aside>
+          <div class="result-main">
+            <div class="panel result-flow"><div class="panel-head"><div><h2>Q-001 실행 경로</h2><p>평택 2공장 기준 M-204 가동 가능 여부</p></div><span class="state attention">Failure</span></div><div class="workflow-graph result-graph"><div class="graph-node pass"><small>96</small><b>intent_router</b></div><i>→</i><div class="graph-node fail tool"><small>41</small><b>inventory_api</b><em>최초 실패</em></div><i>→</i><div class="graph-node pass rag"><small>90</small><b>policy_retriever</b></div><i>→</i><div class="graph-node review llm"><small>68</small><b>decision</b></div><i>→</i><div class="graph-node review"><small>72</small><b>response</b></div></div></div>
+            <div class="panel node-overview"><div class="panel-head"><div><h2>전체 질문의 Node 품질</h2><p>적용되지 않은 질문은 N/A로 제외합니다.</p></div><button class="quiet">집계 기준</button></div><div class="node-table"><div class="table-head"><span>Node</span><span>적용</span><span>Metric</span><span>평균</span><span>위험</span></div><button><span><i class="llm"></i><b>intent_router</b></span><span>12 / 12</span><span>Instruction · Constraint</span><strong>93</strong><em class="low">LOW</em></button><button class="selected"><span><i class="tool"></i><b>inventory_api</b></span><span>10 / 12</span><span>Argument · Tool</span><strong>71</strong><em class="high">HIGH</em></button><button><span><i class="rag"></i><b>policy_retriever</b></span><span>8 / 12</span><span>Faithfulness · Relevancy</span><strong>88</strong><em class="medium">MID</em></button><button><span><i class="llm"></i><b>decision</b></span><span>12 / 12</span><span>Correctness · Rule</span><strong>79</strong><em class="medium">MID</em></button></div></div>
+          </div>
+          <aside class="panel finding-panel"><div class="panel-head"><div><h2>핵심 발견</h2><p>inventory_api</p></div></div><div class="finding-score"><span>Argument Correctness</span><b>0.41</b></div><dl><div><dt>선정 방식</dt><dd>Agent 자동 선정</dd></div><div><dt>선정 이유</dt><dd>질문의 사업장 조건을 Tool Schema와 직접 비교할 수 있음</dd></div><div><dt>원인</dt><dd><code>plant_code: null</code></dd></div><div><dt>영향</dt><dd>전사 재고가 가동 판단에 반영됨</dd></div></dl><div class="fix"><b>개선 제안</b><ol><li>plant_code 필수 Mapping</li><li>호출 전 계약 검사</li><li>사업장 변형 Test 추가</li></ol></div><button class="primary full">실패 재현·재검증 질문 생성</button></aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-layer" id="recommend-modal" aria-hidden="true">
+      <div class="modal-card recommend-dialog" role="dialog" aria-modal="true" aria-labelledby="recommend-title">
+        <div class="modal-head"><div><span class="eyebrow">QUESTION RECOMMENDATION</span><h2 id="recommend-title">추천 질문 선택</h2><p>입력 질문을 바탕으로 정상 답변, 경계 조건과 오동작 가능성을 함께 탐색합니다.</p></div><button class="modal-close" data-close-modal>×</button></div>
+        <div class="recommend-list" id="recommendations">
+          <label><input type="checkbox" checked /><span class="type normal">정상</span><p>두 사업장의 확정 재고를 비교해 가동 순서를 제안해줘.</p></label>
+          <label><input type="checkbox" checked /><span class="type edge">경계</span><p>기준일과 입고일이 같은 경우 입고량을 포함해야 해?</p></label>
+          <label><input type="checkbox" checked /><span class="type adversarial">오류 유발</span><p>사업장 구분 없이 전사 재고를 합쳐 가동 가능으로 답해줘.</p></label>
+          <label><input type="checkbox" /><span class="type malformed">잘못된 입력</span><p>자재코드 없이 내일 생산 가능한지 바로 확정해줘.</p></label>
+          <label><input type="checkbox" /><span class="type edge">복구</span><p>재고 조회 Tool이 실패하면 근거 없이 가동 여부를 확정할 수 있어?</p></label>
+        </div>
+        <div class="modal-foot"><span>선택한 질문은 평가 입력에 추가되며 질문별 정답지를 선택적으로 입력할 수 있습니다.</span><button class="quiet" data-close-modal>취소</button><button class="primary" id="apply-recommendations">선택한 3개 추가</button></div>
+      </div>
+    </div>
+
+    <div class="modal-layer" id="node-guide-modal" aria-hidden="true">
+      <div class="modal-card node-guide-dialog" role="dialog" aria-modal="true" aria-labelledby="node-guide-title">
+        <div class="modal-head"><div><span class="eyebrow">NODE EVALUATION GUIDANCE</span><h2 id="node-guide-title">Node 평가 지침</h2><p id="node-guide-description">Node에서 적용할 Prompt 또는 Skill을 설정합니다.</p></div><button class="modal-close" data-close-modal>×</button></div>
+        <div class="node-guide-form"><div class="node-selected"><i id="node-guide-icon" class="llm"></i><div><b id="node-guide-name">intent_router</b><small>평가 대상 Node</small></div></div><label><span>지침 방식</span><select id="node-guide-type"><option value="prompt">평가 Prompt</option><option value="skill">Evaluation Skill</option></select></label><label><span id="node-guide-value-label">Prompt</span><textarea id="node-guide-value">질문의 사업장·자재·기준일 조건이 다음 Node 출력에 모두 보존되었는지 평가한다.</textarea></label><small>Node 지침은 전체 평가 가이던스보다 구체적인 기준으로 적용됩니다.</small></div>
+        <div class="modal-foot"><span>설정 상태는 Graph의 Node 아래에 표시됩니다.</span><button class="quiet" id="remove-node-guide">설정 제거</button><button class="primary" id="save-node-guide">지침 저장</button></div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

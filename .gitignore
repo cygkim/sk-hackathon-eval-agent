@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+.tmp*/
+ui_mockups_v2/interaction_checks/render_profiles/
+~$*.docx
